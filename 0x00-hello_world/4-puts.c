@@ -1,15 +1,13 @@
 #!bin/bash
-  /* This script prints a text and exists */
-
- #include <stdio.h>
-
 /**
- * main -Entry Point
+ * main -print the string in the put function
  *
- * Return: Always 0 (Success)
+ * Description: using the main function
+ * this programme prints "programming is like building a multilingual puzzle
+ * Return: 0
  */
-  int main(void)
+init main(void)
 {
-	  puts("\"Programming is like building a multilingual puzzle");
-	  return (0);
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
