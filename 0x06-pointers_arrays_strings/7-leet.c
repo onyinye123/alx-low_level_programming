@@ -30,11 +30,12 @@ char *leet(char *str)
 		 */
 		for (s = 0; set1[s]; s++)
 		{
-			f (set1[s] == str[i])
+			if (set1[s] == str[i])
 			{
 				str[i] = set2[s];
 				break;
 			}
 		}
-		return (str);
 	}
+	return (str);
+}
