@@ -14,13 +14,8 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 
 	while (byte < n)
 	{
-		unsigned int byte = 0;
-
-		while (byte < n)
-		{
-			*(dest + byte) = *(src + byte);
-			byte++;
-		}
-		return (dest);
+		*(dest + byte) = *(src + byte);
+		byte++;
 	}
-
+	return (dest);
+}
