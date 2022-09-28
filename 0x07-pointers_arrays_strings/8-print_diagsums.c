@@ -17,7 +17,7 @@ void print_diagsums(int *a, int size)
 
 	row = 0;
 	col = 0;
-	sum1 = 0;  
+	sum1 = 0;
 
 	while (row < size)
 	{
@@ -37,7 +37,7 @@ void print_diagsums(int *a, int size)
 		row++;
 		col--;
 	}
-	
+
 	printf("%d, %d\n", sum1, sum2);
 
 }
