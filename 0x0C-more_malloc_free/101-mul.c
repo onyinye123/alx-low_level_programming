@@ -113,7 +113,7 @@ void revrstr(char *s)
  *
  * Return: Always 0
  */
-int main(int argc, char const *argv[])
+int main(int argc, *argv[])
 {
 	unsigned int len1, len2;
 	int l;
