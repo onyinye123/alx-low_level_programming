@@ -1,26 +1,19 @@
 #include "lists.h"
-#include <stdlib.h>
 #define node listint_t
 
 /**
- * pop_listint - deletests the head node of a list and
- *		return it's data
+ * get_nodeint_at_index - returns the node at a particular index
+ *			in the list
+ * @head: the head of the list
+ * @index: the index of the node, starting from 0
  *
- * @head: head of the list
- *
- * Return: an integer
+ * Return: node at that index, else NULL
  */
-int pop_listint(node **head)
+node *get_nodeint_at_index(node *head, unsigned int index)
 {
-	node *temp;
-	int data;
-
-	if (*head == NULL)
-		return (0);
-
-	temp = *head;
-	data = (*head)->n;
-	*head = (*head)->next;
-	free(temp);
-	return (data);
+	if (head == NULL)
+		return (NULL);
+	if (index == 0)
+		return (head);
+	return (get_nodeint_at_index(head->next, index - 1));
 }
