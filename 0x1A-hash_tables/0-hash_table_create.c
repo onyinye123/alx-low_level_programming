@@ -1,7 +1,6 @@
 #include "hash_tables.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 /**
  * hash_table_create - create a hash table which can hold @size chains
