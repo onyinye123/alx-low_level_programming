@@ -1,56 +1,29 @@
 #include "hash_tables.h"
-#include <stdlib.h>
 #include <string.h>
 
 /**
- * hash_table_set - sets an element to the hash table
+ * hash_table_get - retrieves the value associated with a key
  *
- * @ht: the hash table you want to set the element on
+ * @ht: the hast table to search
  *
- * @key: the element's key
+ * @key: the key we are looking for
  *
- * @value: the element's value
- *
- * Return: 1 if it succeeded, 0 otherwise
+ * Return: the value associated with @key, or NULL if @key was not found
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	char *val;
-	hash_node_t *temp;
 	ulong index;
+	hash_node_t *temp;
 
 	if (!(ht && key))
-		return (0);
-	val = value ? strdup(value) : NULL;
-	if (!val && value)
-		return (0);
+		return (NULL);
 	index = key_index((const unsigned char *)key, ht->size);
 	temp = ht->array[index];
 	while (temp)
 	{
 		if (!strcmp(temp->key, key))
-		{
-			free(temp->value);
-			temp->value = val;
-			return (1);
-		}
+			return (temp->value);
 		temp = temp->next;
 	}
-	temp = malloc(sizeof(hash_node_t));
-	if (!temp)
-	{
-		free(val);
-		return (0);
-	}
-	temp->key = strdup(key);
-	if (!temp->key)
-	{
-		free(temp);
-		free(val);
-		return (0);
-	}
-	temp->value = val;
-	temp->next = ht->array[index];
-	ht->array[index] = temp;
-	return (1);
+	return (NULL);
 }
